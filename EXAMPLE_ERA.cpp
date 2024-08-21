@@ -24,6 +24,7 @@ ERA_WRITE(V0) {
 }
 
 //GỬI GIÁ TRỊ LÊN ERA - ỨNG DỤNG ĐỂ ĐỒNG BỘ CÔNG TẮC,....
+// Ở VÍ DỤ NÀY KHÔNG CẦN HÀM NÀY VÌ TRONG HÀM "ERA_WRITE(0)" đã có sẵn để thay đổi giá trị pin ảo
 void timerEvent() {
     ERA_LOG("Timer", "Uptime: %d", ERaMillis() / 1000L);    
     ERa.virtualWrite(V0, digitalRead(LED1));                //ĐẶT TRONG HÀM timerEvent()                      
