@@ -19,16 +19,16 @@ void TaskEra(void * pvParameters);
 // ĐỌC GIÁ TRỊ TỪ ERA
 ERA_WRITE(V0) {
     uint8_t value = param.getInt();
-    digitalWrite(WATERPUMP, value ? HIGH : LOW);
+    digitalWrite(LED1, value ? HIGH : LOW);
     ERa.virtualWrite(V0, digitalRead(LED1));
 }
 
-//GỬI GIÁ TRỊ LÊN ERA
- /* void timerEvent() {
-    ERA_LOG("Timer", "Uptime: %d", ERaMillis() / 1000L);
+//GỬI GIÁ TRỊ LÊN ERA - ỨNG DỤNG ĐỂ ĐỒNG BỘ CÔNG TẮC,....
+void timerEvent() {
+    ERA_LOG("Timer", "Uptime: %d", ERaMillis() / 1000L);    
     ERa.virtualWrite(V0, digitalRead(LED1));                //ĐẶT TRONG HÀM timerEvent()                      
 }
-*/
+
 
 void setup() {
   Serial.begin(115200);
@@ -61,6 +61,6 @@ void TaskEra(void * pvParameters) {
 
 //------------------------------------------------------------------ HÀM LOOP CHẠY CORE 1--------------------------------------------------------------
 void loop() {
- timeCheck();
+ // TẠI ĐÂY CÓ THỂ SỬ DỤNG CÁC HÀM NHƯ: GIAO TIẾP MODULE LORA, MÀN HÌNH HMI, RELAY,....           
  vTaskDelay(10);
 }
